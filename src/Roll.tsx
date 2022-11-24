@@ -32,7 +32,7 @@ export const Roll = styled.li.attrs<Props>(({
         ))}
       </RollDice>
       <RollInfo>
-        <RollSum>{sum || "_"}</RollSum>
+        <RollSum>{typeof sum === 'number' ? sum : "_"}</RollSum>
         <RollTimestamp>{timestamp}</RollTimestamp>
       </RollInfo>
     </>,
