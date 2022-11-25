@@ -1,7 +1,7 @@
 import { sample, forward } from 'effector';
 import { loadLocalStorageFx, saveLocalStorageFx } from '../localStorage';
 
-import {$diceModel, $rolls, LOCAL_STORAGE_KEY} from './index';
+import { $diceModel, $rolls, LOCAL_STORAGE_KEY } from './index';
 import {
   $rollingDice,
   dieClicked,
@@ -9,6 +9,7 @@ import {
   rollAddedFx,
   scrollFx,
 } from './index';
+import { vibrateFx } from '../app';
 
 sample({
   source: $rollingDice,
@@ -19,6 +20,11 @@ sample({
 sample({
   clock: dieClicked,
   target: scrollFx,
+});
+
+sample({
+  clock: dieClicked,
+  target: vibrateFx,
 });
 
 sample({

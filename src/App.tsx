@@ -67,6 +67,7 @@ const AppStyled = styled.div`
 `;
 
 const Header = styled.header`
+  padding: 8px 0;
   font-size: 24px;
   font-weight: bold;
 `;
