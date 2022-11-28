@@ -1,4 +1,5 @@
 import { useStore } from 'effector-react';
+import { useHotkeys } from 'react-hotkeys-hook';
 
 import styled from 'styled-components';
 
@@ -6,8 +7,11 @@ import {
   $dice,
   $rollingDice,
   $rolls,
+  dieClicked,
   setScrollHelperEl,
 } from './models/dice';
+
+import type { DiceName } from './models/dice';
 
 import { Die } from './Die';
 import { Roll } from './Roll';
@@ -16,6 +20,17 @@ export const App = () => {
   const dice = useStore($dice);
   const rolls = useStore($rolls);
   const rollingDice = useStore($rollingDice);
+
+  const createDieRollHandler = (diceName: DiceName) => () => {
+    dieClicked(diceName);
+  }
+  useHotkeys('1, q', createDieRollHandler('d4'));
+  useHotkeys('2, w', createDieRollHandler('d6'));
+  useHotkeys('3, e', createDieRollHandler('d8'));
+  useHotkeys('4, r', createDieRollHandler('d10'));
+  useHotkeys('5, t', createDieRollHandler('d12'));
+  useHotkeys('6, y', createDieRollHandler('d20'));
+
   return (
     <AppStyled>
       <Header>Dice'n'rolla</Header>
@@ -39,12 +54,11 @@ export const App = () => {
                rolling,
                key,
                max,
-               onClick,
                animationKey,
              }) => (
               <DieButton
                 key={animationKey}
-                onClick={onClick}>
+                onClick={createDieRollHandler(key)}>
                  <Die
                    rolling={rolling}
                    name={key}

@@ -31,7 +31,6 @@ interface DiceParams {
   key: string;
   max: number;
   valueShift: number;
-  onClick: () => void;
 }
 
 export const DICE: {[k: DiceName]: DiceParams} = {
@@ -39,49 +38,31 @@ export const DICE: {[k: DiceName]: DiceParams} = {
     key: 'd4',
     max: 4,
     valueShift: 1,
-    onClick: () => {
-      dieClicked('d4');
-    },
   },
   d6: {
     key: 'd6',
     max: 6,
     valueShift: 1,
-    onClick: () => {
-      dieClicked('d6');
-    },
   },
   d8: {
     key: 'd8',
     max: 8,
     valueShift: 1,
-    onClick: () => {
-      dieClicked('d8');
-    },
   },
   d10: {
     key: 'd10',
     max: 10,
     valueShift: 0,
-    onClick: () => {
-      dieClicked('d10');
-    },
   },
   d12: {
     key: 'd12',
     max: 12,
     valueShift: 1,
-    onClick: () => {
-      dieClicked('d12');
-    },
   },
   d20: {
     key: 'd20',
     max: 20,
     valueShift: 1,
-    onClick: () => {
-      dieClicked('d20');
-    },
   },
 }
 
