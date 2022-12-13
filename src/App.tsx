@@ -57,10 +57,13 @@ export const App = () => {
                key,
                max,
                animationKey,
+               hint,
              }) => (
               <DieButton
                 key={animationKey}
-                onClick={createDieRollHandler(key)}>
+                onClick={createDieRollHandler(key)}
+                title={hint}
+              >
                  <Die
                    rolling={rolling}
                    name={key}
