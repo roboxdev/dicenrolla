@@ -72,6 +72,11 @@ const RollSum = styled.div`
   font-weight: bold;
   background: #626262;
   color: white;
+  text-shadow: 
+     -1px -1px 0 hsl(0, 0%, 25%),
+      1px -1px 0 hsl(0, 0%, 25%),
+      -1px 1px 0 hsl(0, 0%, 25%),
+       1px 1px 0 hsl(0, 0%, 25%);
   
   visibility: ${p => p.children === "_" && 'hidden'};
 

@@ -62,6 +62,11 @@ export const Die = styled.div.attrs<Props>(({
   > span {
     z-index: 100;
     color: white;
+    text-shadow: 
+     -1px -1px 0 hsl(0, 0%, 25%),
+      1px -1px 0 hsl(0, 0%, 25%),
+      -1px 1px 0 hsl(0, 0%, 25%),
+       1px 1px 0 hsl(0, 0%, 25%);
   }
 
   [data-die-shape-name="d4"] {
