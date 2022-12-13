@@ -15,8 +15,12 @@ export const GlobalStyles = createGlobalStyle`
     -webkit-text-size-adjust: 100%;
 
     color-scheme: light dark;
+    --text-color: rgba(255, 255, 255, 0.87);
     color: rgba(255, 255, 255, 0.87);
+    color: var(--text-color);
+    --background-color: #242424;
     background-color: #242424;
+    background-color: var(--background-color);
   }
   
   a {
@@ -63,8 +67,12 @@ export const GlobalStyles = createGlobalStyle`
   
   @media (prefers-color-scheme: light) {
     :root {
+      --text-color: #213547;
       color: #213547;
-      background-color: #ffffff;
+      color: var(--text-color);
+      --background-color: #fff7ef;
+      background-color: #fff7ef;
+      background-color: var(--background-color);
     }
     a:hover {
       color: #747bff;

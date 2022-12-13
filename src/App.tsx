@@ -15,6 +15,7 @@ import type { DiceName } from './models/dice';
 
 import { Die } from './Die';
 import { Roll } from './Roll';
+import { DiceCounter } from './DiceCounter';
 
 export const App = () => {
   const dice = useStore($dice);
@@ -34,6 +35,7 @@ export const App = () => {
   return (
     <AppStyled>
       <Header>Dice'n'rolla</Header>
+      <DiceCounter />
       <Rolls>
         {rolls.map((r) => (
           <Roll

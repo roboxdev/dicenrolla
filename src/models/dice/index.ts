@@ -107,6 +107,8 @@ $rollingDice
   .on(dieClicked, (state, payload) => [...state, payload])
   .reset(rollAddedFx.done);
 
+export const $rollingDiceCount = $rollingDice.map(v => v.length);
+
 export const $dice = combine(
   $rollingDice,
   (rollingDice) => Object.values(DICE).map(d => {
