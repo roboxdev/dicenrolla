@@ -24,7 +24,7 @@ export const DiceCounter = () => {
 
 const slideDown = keyframes`
   0% {
-    transform: translateY(-50%);
+    transform: translateY(-10%);
   }
   100% {
     transform: translateY(0);
