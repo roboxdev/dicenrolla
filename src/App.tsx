@@ -34,7 +34,7 @@ export const App = () => {
 
   return (
     <AppStyled>
-      <Header>Dice'n'rolla</Header>
+      <Header></Header>
       <DiceCounter />
       <Rolls>
         {rolls.map((r) => (
@@ -43,6 +43,7 @@ export const App = () => {
             dice={r.dice}
             diceResult={r.diceResult}
             sum={r.sum}
+            d100sum={r.d100sum}
             datetime={r.datetime}
           />
         ))}

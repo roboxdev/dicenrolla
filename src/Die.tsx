@@ -6,6 +6,7 @@ import { ReactComponent as D8Component } from './assets/dice-d8.svg'
 import { ReactComponent as D10Component } from './assets/dice-d10.svg'
 import { ReactComponent as D12Component } from './assets/dice-d12.svg'
 import { ReactComponent as D20Component } from './assets/dice-d20.svg'
+import { ReactComponent as D100Component } from './assets/dice-d100.svg'
 
 import type { DiceName } from "./models/dice";
 
@@ -16,6 +17,7 @@ const DIE_SHAPES: {[k: DiceName]: any} = {
   d10: D10Component,
   d12: D12Component,
   d20: D20Component,
+  d100: D100Component,
 }
 
 interface Props {
@@ -70,30 +72,32 @@ export const Die = styled.div.attrs<Props>(({
   }
 
   [data-die-shape-name="d4"] {
-      color: #bf8210;
-      transform: scale(0.9);
+    color: hsl(39, 85%, 41%);
+    transform: scale(0.9);
   }
 
   [data-die-shape-name="d6"] {
-      color: #3bb23b;
+    color: hsl(120, 50%, 46%);
   }
 
   [data-die-shape-name="d8"] {
-      color: #dd6b94;
-      //rotate: 51deg;
-      //scale: 1.3;
+    color: hsl(338, 63%, 64%);
   }
 
   [data-die-shape-name="d10"] {
-      color: #2686d7;
+    color: hsl(207, 70%, 50%);
   }
 
   [data-die-shape-name="d12"] {
-      color: #9356da;
+    color: hsl(268, 64%, 60%);
   }
 
   [data-die-shape-name="d20"] {
-      color: #e04444;
+    color: hsl(0, 72%, 57%);
+  }
+
+  [data-die-shape-name="d100"] {
+    color: hsl(176, 41%, 52%);
   }
 `;
 

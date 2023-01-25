@@ -7,6 +7,7 @@ interface Props {
   dice: RollI['dice'];
   diceResult?: RollI['diceResult'];
   sum?: RollI['sum'];
+  d100sum?: RollI['d100sum'];
   datetime?: RollI['datetime'];
 }
 
@@ -15,6 +16,7 @@ export const Roll = styled.li.attrs<Props>(({
   diceResult,
   sum,
   datetime,
+  d100sum,
 }) => {
   const timestamp = datetime ? format(new Date(datetime), 'HH:mm:ss') : '';
   return ({
@@ -23,13 +25,21 @@ export const Roll = styled.li.attrs<Props>(({
         {dice.map((v, index) => (
           <RollDie key={`${index}-${v}`}>
             <Die
-              // key={animationKey}
               rolling={false}
               name={v}
               label={diceResult ? String(diceResult[index]) : ''}
             />
           </RollDie>
         ))}
+        {!!d100sum &&
+          <RollDie key={`d100sum`}>
+            <Die
+              rolling={false}
+              name={'d100'}
+              label={String(d100sum)}
+            />
+          </RollDie>
+        }
       </RollDice>
       <RollInfo>
         <RollSum>{typeof sum === 'number' ? sum : "_"}</RollSum>

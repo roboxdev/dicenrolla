@@ -25,6 +25,7 @@ export interface RollI {
   datetime: string;
   diceResult: number[];
   sum: number;
+  d100sum?: number;
 }
 
 interface DiceParams {
@@ -89,18 +90,20 @@ export const rollAddedFx = createEffect((dice: DiceName[]) => {
   );
   const d100roll = dice.length === 2
     && dice.filter(v => v === 'd10').length === 2;
+  let d100sum = undefined;
   if (d100roll) {
-    diceResult[0] *= 10
+    d100sum = diceResult[0] * 10 + diceResult[1];
+    if (d100sum === 0) {
+      d100sum = 100
+    }
   }
   let sum = diceResult.reduce((a, b) => a + b, 0);
-  if (d100roll && sum === 0) {
-    sum = 100
-  }
   const result: RollI = {
     dice,
     datetime: now,
     diceResult,
     sum,
+    d100sum,
   }
   return result;
 });
