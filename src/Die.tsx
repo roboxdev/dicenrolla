@@ -71,9 +71,13 @@ export const Die = styled.div.attrs<Props>(({
        1px 1px 0 hsl(0, 0%, 25%);
   }
 
+  &[data-die-name="d4"] span {
+    translate: 0 4px;
+  }
+
   [data-die-shape-name="d4"] {
     color: hsl(39, 85%, 41%);
-    transform: scale(0.9);
+    translate: 0 5px;
   }
 
   [data-die-shape-name="d6"] {
