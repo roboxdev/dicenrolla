@@ -34,7 +34,9 @@ export const App = () => {
 
   return (
     <AppStyled>
-      <Header></Header>
+      <Header>
+        Dice′n′rolla
+      </Header>
       <DiceCounter />
       <Rolls>
         {rolls.map((r) => (
@@ -87,17 +89,24 @@ const AppStyled = styled.div`
 `;
 
 const Header = styled.header`
-  padding: 8px 0;
+  min-height: calc(100vh - 80px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
   font-size: 24px;
   font-weight: bold;
+  margin-bottom: 80px;
 `;
 
 const Rolls = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 16px;
+  margin: 0;
   
-  flex: 1;
+  flex: 1 0 calc(100vh - 80px);
 `;
 
 
@@ -113,6 +122,7 @@ const Footer = styled.footer`
   display: flex;
   flex-direction: column;
   align-items: stretch;
+  max-height: 80px;
   
   padding: 16px 0;
 `;
