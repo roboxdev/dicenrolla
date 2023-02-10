@@ -88,16 +88,20 @@ export const rollAddedFx = createEffect((dice: DiceName[]) => {
   const diceResult = dice.map(
     k => Math.floor(Math.random() * DICE[k].max) + DICE[k].valueShift
   );
+  let sum = diceResult.reduce((acc, v, i) => {
+    const diceName = dice[i];
+    const value = (diceName === 'd10' && v === 0) ? 10 : v;
+    return acc + value;
+  }, 0);
+
   const d100roll = dice.length === 2
     && dice.filter(v => v === 'd10').length === 2;
+
   let d100sum = undefined;
-  if (d100roll) {
-    d100sum = diceResult[0] * 10 + diceResult[1];
-    if (d100sum === 0) {
-      d100sum = 100
-    }
+  if (d100roll && diceResult[0] + diceResult[1] === 0) {
+    d100sum = 100
   }
-  let sum = diceResult.reduce((a, b) => a + b, 0);
+
   const result: RollI = {
     dice,
     datetime: now,
