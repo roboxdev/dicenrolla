@@ -34,9 +34,13 @@ export const App = () => {
 
   return (
     <AppStyled>
-      <Header>
-        Dice′n′rolla
-      </Header>
+      <About>
+        <Header>Dice′n′rolla</Header>
+        <Content></Content>
+        <Footer>
+          with 🤍 from <a href="https://robox.dev" target="_blank">robox</a>
+        </Footer>
+      </About>
       <DiceCounter />
       <Rolls>
         {rolls.map((r) => (
@@ -52,7 +56,7 @@ export const App = () => {
         <Roll dice={rollingDice} />
         <ScrollHelper ref={setScrollHelperEl} />
       </Rolls>
-      <Footer>
+      <FloatingBar>
         <Dice>
           {Object.values(dice).map(
             ({
@@ -75,7 +79,7 @@ export const App = () => {
                </DieButton>
             ))}
         </Dice>
-      </Footer>
+      </FloatingBar>
     </AppStyled>
   )
 };
@@ -88,16 +92,33 @@ const AppStyled = styled.div`
   height: 100%;
 `;
 
-const Header = styled.header`
+const About = styled.div`
   min-height: calc(100vh - 80px);
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   padding: 0;
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 80px;
+`;
+
+const Header = styled.header``;
+
+const Content = styled.div`
+  flex: 1;
+`;
+
+const Footer = styled.footer`
+  font-size: 12px;
+  color: hsl(0, 0%, 55%);
+  
+  a {
+    color: hsl(0, 0%, 55%);
+    text-decoration: underline;
+  }
+  
 `;
 
 const Rolls = styled.ul`
@@ -112,7 +133,7 @@ const Rolls = styled.ul`
 
 const ScrollHelper = styled.li``;
 
-const Footer = styled.footer`
+const FloatingBar = styled.div`
   position: sticky;
   z-index: 1000;
   bottom: 0;
